@@ -1,6 +1,21 @@
 import * as anchor from "@coral-xyz/anchor";
 import dotenv from "dotenv";
 
+// todo tests: create task with wrong data
+//  create task with correct data
+//  get all tasks
+//  take own task
+//  take someone else's task
+//  take already taken task
+//  finish own task
+//  finish someone else's task
+//  finish task with unappropriated status
+//  finish stale task
+//  vote task
+//  double vote task
+//  vote own task
+//  vote task with wrong status
+
 describe("promise_keeper", () => {
     dotenv.config();
     const provider = anchor.AnchorProvider.local();
