@@ -77,7 +77,7 @@ pub mod promise_keeper {
         if approve != 0 {
             task.approve_votes.push(ctx.accounts.user.key());
         } else {
-            task.approve_votes.push(ctx.accounts.user.key());
+            task.disapprove_votes.push(ctx.accounts.user.key());
         }
 
         Ok(())

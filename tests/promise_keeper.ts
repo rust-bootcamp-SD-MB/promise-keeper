@@ -15,6 +15,7 @@ import dotenv from "dotenv";
 //  double vote task
 //  vote own task
 //  vote task with wrong status
+//  validate task creation data
 
 describe("promise_keeper", () => {
     dotenv.config();
@@ -26,7 +27,7 @@ describe("promise_keeper", () => {
     const program = anchor.workspace.promise_keeper;
 
     it("Should create task", async () => {
-        const name = "Push ups6";
+        const name = "Run 5 kilometer";
         const taskSeed = [
             anchor.utils.bytes.utf8.encode("task"),
             anchor.utils.bytes.utf8.encode(name),
@@ -34,7 +35,7 @@ describe("promise_keeper", () => {
         let [taskPubKey] = anchor.web3.PublicKey.findProgramAddressSync(taskSeed, program.programId);
 
         await program.methods
-            .createTask(name, "Bla bla description", 1_000_000)
+            .createTask(name, "You must run a kilometer to prove your power", 3600)
             .accounts({
                 task: taskPubKey,
                 authority: provider.wallet.publicKey,
